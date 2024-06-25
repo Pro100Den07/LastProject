@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body>
+    <h1>Нажмите на кнопку, чтобы сгенерировать пароль:</h1>
+    <button onclick="generatePassword()">Сгенерировать пароль</button>
+    <p id="password"></p>
+
+    <script>
+        function generatePassword() {
+            var passwordLength = 12; // Длина пароля
+            var password = generateRandomPassword(passwordLength);
+            document.getElementById("password").innerText = "Ваш сгенерированный пароль: " + password;
+        }
+
+        function generateRandomPassword(length) {
+            var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*()_+-=[]|,.<>";
+            var password = "";
+            for (var i = 0; i < length; i++) {
+                var randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            return password;
+        }
+    </script>
+</body>
+</html>
+
